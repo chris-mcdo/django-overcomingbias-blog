@@ -109,6 +109,12 @@ class PDFPandocWriter(BinaryPandocWriter):
     mime_type = "application/pdf"
     file_suffix: Optional[str] = ".pdf"
 
+    @property
+    def options(self):
+        _options = super().options
+        _options.extend(["--pdf-engine", "xelatex"])
+        return _options
+
 
 @dataclass
 class MarkdownPandocWriter(TextPandocWriter):
