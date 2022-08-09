@@ -15,6 +15,30 @@ standard.
 .. Improved Documentation
 .. Trivial/Internal Changes
 
+django-overcomingbias-api 0.3.1 (2022-08-09)
+--------------------------------------------
+
+Bug fixes
+^^^^^^^^^
+
+- Use xelatex by default when exporting sequence to PDF. (Prevents some errors rendering
+  unicode symbols.)
+
+
+django-overcomingbias-api 0.3.0 (2022-07-11)
+--------------------------------------------
+
+Features
+^^^^^^^^
+
+- Add new content type ``EssayContentItem``.
+
+Improvements
+^^^^^^^^^^^^
+
+- Add creation and update timestamps to ``Sequence`` models.
+
+
 django-overcomingbias-api 0.2.5 (2022-06-28)
 --------------------------------------------
 
