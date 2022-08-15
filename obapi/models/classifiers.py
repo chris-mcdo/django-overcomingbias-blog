@@ -118,7 +118,7 @@ class AliasedModel(models.Model):
         if exclude is not None and "text" in exclude:
             return
         # Raise error if there is a matching alias, and the match has a different pk
-        alias_model = self.aliases.model
+        alias_model = type(self).aliases.field.model
         try:
             match = alias_model.objects.get(
                 text=utils.to_slug(self.name, max_length=CLASSIFIER_SLUG_MAX_LENGTH)
