@@ -5,10 +5,10 @@ from django.core.exceptions import ValidationError
 from django.db import IntegrityError
 from obapi.models import (
     SEQUENCE_SLUG_MAX_LENGTH,
-    AudioContentItem,
+    EssayContentItem,
     Sequence,
-    TextContentItem,
-    VideoContentItem,
+    SpotifyContentItem,
+    YoutubeContentItem,
 )
 from obapi.utils import to_slug
 
@@ -34,9 +34,15 @@ class TestCreateSequence:
     def test_can_create_normal_sequence(self):
         # Arrange
         now = datetime.datetime.now()
-        video = VideoContentItem.objects.create(title="Video Item", publish_date=now)
-        audio = AudioContentItem.objects.create(title="Audio Item", publish_date=now)
-        text = TextContentItem.objects.create(title="Text Item", publish_date=now)
+        video = YoutubeContentItem.objects.create(
+            title="YouTube Item", item_id="4yZKGbq1YmA", publish_date=now
+        )
+        audio = SpotifyContentItem.objects.create(
+            title="Spotify Item", item_id="6z8lvJia3OzcIVCStbmEtU", publish_date=now
+        )
+        text = EssayContentItem.objects.create(
+            title="Essay Item", item_id="example", publish_date=now
+        )
         seq_title = "Example Sequence"
 
         # Act - create basic sequence
