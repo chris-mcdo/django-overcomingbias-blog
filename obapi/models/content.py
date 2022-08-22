@@ -363,24 +363,12 @@ class ContentItem(models.Model):
                     self.internal_links.add(match)
 
 
-class VideoContentItem(ContentItem):
-    duration = models.DurationField(
-        help_text="Duration of video.", blank=True, null=True
-    )
-    view_count = models.PositiveIntegerField(
-        help_text="Number of video views.", blank=True, null=True
-    )
-
-    class Meta:
-        verbose_name = "video"
-
-
 class YoutubeContentItemQuerySet(ContentItemQuerySet):
     assemble_by_ids = assemble_youtube_content_items
     url_converters = ((YoutubeVideoURLConverter(), "item_id"),)
 
 
-class YoutubeContentItem(VideoContentItem):
+class YoutubeContentItem(ContentItem):
     objects = YoutubeContentItemQuerySet.as_manager()
     item_id = models.CharField(
         "video ID", max_length=30, unique=True, help_text="Video ID."
@@ -396,6 +384,12 @@ class YoutubeContentItem(VideoContentItem):
     )
     yt_description = models.TextField(
         "description", max_length=5000, blank=True, help_text="Video description."
+    )
+    duration = models.DurationField(
+        help_text="Duration of video.", blank=True, null=True
+    )
+    view_count = models.PositiveIntegerField(
+        help_text="Number of video views.", blank=True, null=True
     )
 
     @property
@@ -417,24 +411,12 @@ class YoutubeContentItem(VideoContentItem):
         verbose_name = "youtube video"
 
 
-class AudioContentItem(ContentItem):
-    duration = models.DurationField(
-        help_text="Duration of episode.", blank=True, null=True
-    )
-    listen_count = models.PositiveIntegerField(
-        help_text="Number of episode listens.", blank=True, null=True
-    )
-
-    class Meta:
-        verbose_name = "episode"
-
-
 class SpotifyContentItemQuerySet(ContentItemQuerySet):
     assemble_by_ids = assemble_spotify_content_items
     url_converters = ((SpotifyEpisodeURLConverter(), "item_id"),)
 
 
-class SpotifyContentItem(AudioContentItem):
+class SpotifyContentItem(ContentItem):
     objects = SpotifyContentItemQuerySet.as_manager()
     item_id = models.CharField(
         "episode ID", max_length=30, unique=True, help_text="Episode ID."
@@ -445,6 +427,12 @@ class SpotifyContentItem(AudioContentItem):
     )
     sp_description = models.TextField(
         "description", max_length=5000, blank=True, help_text="Episode description."
+    )
+    duration = models.DurationField(
+        help_text="Duration of episode.", blank=True, null=True
+    )
+    listen_count = models.PositiveIntegerField(
+        help_text="Number of episode listens.", blank=True, null=True
     )
 
     @property
@@ -464,18 +452,6 @@ class SpotifyContentItem(AudioContentItem):
 
     class Meta:
         verbose_name = "spotify episode"
-
-
-class TextContentItem(ContentItem):
-    word_count = models.PositiveIntegerField(
-        blank=True, null=True, help_text="Word count."
-    )
-    text_html = models.TextField(
-        "content text HTML", blank=True, help_text="Content text HTML."
-    )
-    text_plain = models.TextField(
-        "content plaintext", blank=True, help_text="Content plaintext."
-    )
 
 
 class OBContentItemQuerySet(ContentItemQuerySet):
@@ -546,7 +522,7 @@ class OBContentItemQuerySet(ContentItemQuerySet):
         return update_count
 
 
-class OBContentItem(TextContentItem):
+class OBContentItem(ContentItem):
     objects = OBContentItemQuerySet.as_manager()
     item_id = models.CharField(
         "string ID",
@@ -565,6 +541,15 @@ class OBContentItem(TextContentItem):
     )
     ob_comments = models.PositiveSmallIntegerField(
         "comments", blank=True, null=True, help_text="Number of comments."
+    )
+    word_count = models.PositiveIntegerField(
+        blank=True, null=True, help_text="Word count."
+    )
+    text_html = models.TextField(
+        "content text HTML", blank=True, help_text="Content text HTML."
+    )
+    text_plain = models.TextField(
+        "content plaintext", blank=True, help_text="Content plaintext."
     )
 
     @property
@@ -591,13 +576,22 @@ class EssayContentItemQuerySet(ContentItemQuerySet):
     url_converters = ((EssayURLConverter(), "item_id"),)
 
 
-class EssayContentItem(TextContentItem):
+class EssayContentItem(ContentItem):
     objects = EssayContentItemQuerySet.as_manager()
     item_id = models.CharField(
         "string ID",
         max_length=300,
         unique=True,
         help_text='Essay string identifier. E.g. "Varytax"',
+    )
+    word_count = models.PositiveIntegerField(
+        blank=True, null=True, help_text="Word count."
+    )
+    text_html = models.TextField(
+        "content text HTML", blank=True, help_text="Content text HTML."
+    )
+    text_plain = models.TextField(
+        "content plaintext", blank=True, help_text="Content plaintext."
     )
 
     @property

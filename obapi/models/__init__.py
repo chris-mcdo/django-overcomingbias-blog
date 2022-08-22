@@ -11,13 +11,10 @@ from obapi.models.classifiers import (
     TopicAlias,
 )
 from obapi.models.content import (
-    AudioContentItem,
     ContentItem,
     EssayContentItem,
     OBContentItem,
     SpotifyContentItem,
-    TextContentItem,
-    VideoContentItem,
     YoutubeContentItem,
 )
 from obapi.models.sequence import (
@@ -41,11 +38,8 @@ __all__ = [
     "ExternalLink",
     "ContentItem",
     "EssayContentItem",
-    "VideoContentItem",
     "YoutubeContentItem",
-    "AudioContentItem",
     "SpotifyContentItem",
-    "TextContentItem",
     "OBContentItem",
     "SEQUENCE_SLUG_MAX_LENGTH",
     "BaseSequence",
