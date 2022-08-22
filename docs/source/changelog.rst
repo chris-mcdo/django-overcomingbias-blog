@@ -15,6 +15,21 @@ standard.
 .. Improved Documentation
 .. Trivial/Internal Changes
 
+django-overcomingbias-api 0.3.2 (2022-08-22)
+--------------------------------------------
+
+Improvements
+^^^^^^^^^^^^
+
+- Removed unnecessary model (``TextContentItem``, ``VideoContentItem`` and 
+  ``AudioContentItem``) to reduce the database queries needed by a typical request.
+
+Bug fixes
+^^^^^^^^^
+
+- Fixed minor bug when creating classifiers using postgresql.
+
+
 django-overcomingbias-api 0.3.1 (2022-08-09)
 --------------------------------------------
 
