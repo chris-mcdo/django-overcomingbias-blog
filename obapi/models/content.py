@@ -607,7 +607,7 @@ class EssayContentItem(ContentItem):
 
     @classmethod
     def site_name(self):
-        return "Home Page"
+        return "Essays"
 
     class Meta:
         verbose_name = "essay"
