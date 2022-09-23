@@ -40,7 +40,11 @@ def export_sequence(sequence, writer):
     # metadata_template = f"{sequence._meta.app_label}/export/metadata.md"
     # metadata = render_to_string(metadata_template, {"sequence": sequence})
 
-    items = sequence.items.select_subclasses()
+    content_item_pks = [
+        member.content_item_id for member in sequence.members.order_by("order")
+    ]
+    item_dict = sequence.items.select_subclasses().in_bulk()
+    items = [item_dict[pk] for pk in content_item_pks]
 
     sequence_html = render_sequence(items)
 

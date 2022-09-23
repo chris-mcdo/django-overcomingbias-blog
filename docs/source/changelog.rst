@@ -15,6 +15,19 @@ standard.
 .. Improved Documentation
 .. Trivial/Internal Changes
 
+django-overcomingbias-api 0.3.3 (2022-09-23)
+--------------------------------------------
+
+Bug fixes
+^^^^^^^^^
+
+- Ensure sequence items are rendered in the correct order when exported.
+
+Trivial/Internal Changes
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Rename ``EssayContentItem``'s display name to ``Essays`` (previously "Home Page").
+
 django-overcomingbias-api 0.3.2 (2022-08-22)
 --------------------------------------------
 
