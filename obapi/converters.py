@@ -1,10 +1,38 @@
 import re
 
+from django.urls.converters import StringConverter
+
 YOUTUBE_VIDEO_ID_REGEX = r"[0-9A-Za-z_-]{10}[048AEIMQUYcgkosw]"
 SPOTIFY_EPISODE_ID_REGEX = r"[a-zA-Z0-9]{22}"
 OB_POST_NAME_REGEX = r"\d{4}/\d{2}/[a-z0-9-_%]+"
 OB_POST_NUMBER_REGEX = r"[0-9]{5}"
 ESSAY_ID_REGEX = r"[a-zA-Z0-9-_%]+"
+
+
+class ClassifierNameConverter(StringConverter):
+    regex = r"(author|idea|topic|tag)s"
+
+    def to_python(self, value):
+        return value.removesuffix("s")
+
+    def to_url(self, value):
+        return f"{value}s"
+
+
+class YoutubeVideoIDConverter(StringConverter):
+    regex = YOUTUBE_VIDEO_ID_REGEX
+
+
+class SpotifyEpisodeIDConverter(StringConverter):
+    regex = SPOTIFY_EPISODE_ID_REGEX
+
+
+class OBPostNameConverter(StringConverter):
+    regex = OB_POST_NAME_REGEX
+
+
+class EssayIDConverter(StringConverter):
+    regex = ESSAY_ID_REGEX
 
 
 class URLConverter:
