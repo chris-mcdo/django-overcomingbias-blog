@@ -377,7 +377,7 @@ class YoutubeContentItem(ContentItem):
         "channel ID", max_length=30, help_text="Channel ID."
     )
     yt_channel_title = models.CharField(
-        "channel title", max_length=30, help_text="Channel title."
+        "channel title", max_length=100, help_text="Channel title."
     )
     yt_likes = models.PositiveIntegerField(
         "likes", blank=True, null=True, help_text="Number of likes."
