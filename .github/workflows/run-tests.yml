@@ -27,16 +27,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install tox coverage
 
-      - name: Test without coverage
-        if: "! matrix.use_coverage"
-        run: "tox -e py38"
-
       - name: Test with coverage
-        if: "matrix.use_coverage"
         run: "tox -e py38-coverage"
 
       - name: Generate coverage report
-        if: "matrix.use_coverage"
         run: python -m coverage xml
 
       - name: Upload coverage to Codecov
