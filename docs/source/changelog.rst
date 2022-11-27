@@ -15,6 +15,15 @@ standard.
 .. Improved Documentation
 .. Trivial/Internal Changes
 
+django-overcomingbias-api 0.5.0 (2022-11-27)
+--------------------------------------------
+
+Features
+^^^^^^^^
+
+- Add basic API at URL ``/api``.
+
+
 django-overcomingbias-api 0.3.3 (2022-09-23)
 --------------------------------------------
 

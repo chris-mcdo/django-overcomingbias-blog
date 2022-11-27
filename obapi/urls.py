@@ -1,3 +1,7 @@
+from django.urls import path
+
+from obapi.api import api
+
 urlpatterns = [
-    # GraphQL and REST APIs?
+    path("api/", api.urls),
 ]

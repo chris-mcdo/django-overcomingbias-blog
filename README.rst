@@ -5,9 +5,9 @@ django-overcomingbias-api: an API to Robin Hanson's content
 app which lets you create and manage an API to (some of) Robin Hanson's content.
 
 It scrapes the `overcomingbias <https://www.overcomingbias.com/>`_ blog (and other
-sites) and presents the data in a structured form via
-`REST <https://en.wikipedia.org/wiki/Representational_state_transfer>`_ and
-`GraphQL <https://graphql.org/>`_ APIs.
+sites) and presents the data in a structured form via a
+`REST <https://en.wikipedia.org/wiki/Representational_state_transfer>`_ API.
+(I may add a GraphQL API later, too.)
 
 Basic Usage
 -----------
@@ -30,7 +30,7 @@ Use the admin site and custom
 `Admin Actions <https://docs.djangoproject.com/en/dev/ref/contrib/admin/actions/>`_
 to manage content.
 
-*Coming soon* Link the app in your URL config to access the REST or GraphQL APIs:
+Link the app in your URL config to access the REST API:
 
 .. code-block:: python
 
@@ -42,7 +42,8 @@ to manage content.
         ...
     ]
 
-..  Example of using GraphQL / REST API
+
+You should then be able to access the automatic API documentation at URL ``/api/docs``.
 
 Alternatively, provide your own views for each post:
 
@@ -70,6 +71,8 @@ Features
 Currently, content can be scraped from the following sources:
 
 - The `overcomingbias <https://www.overcomingbias.com/>`_ blog (added automatically)
+
+- Robin Hanson's `home page <https://mason.gmu.edu/~rhanson/>`_
 
 - YouTube videos (add videos manually using their URLs)
 

@@ -42,6 +42,17 @@ apps:
     # downloading
     # OBAPI_DOWNLOAD_BATCH_SIZE = 1000
 
+If you would like to use the REST API, add the ``obapi`` URLs to your ``urlpatterns``:
+
+.. code-block:: python
+
+    # urls.py
+    from django.urls import include, path
+
+    urlpatterns = [
+      path("", include("obapi.urls")),
+    ]
+
 Last, run the migrations
 
 .. code-block:: console
@@ -124,5 +135,14 @@ To use the data, you can
 
 - Provide your own Django views on top of the database
 
-- Use the GraphQL or REST API and build a frontend in whatever framework you like
+- Use the REST API and build a frontend in whatever framework you like
 
+Automatically generated API documentation can be found at the URL ``/api/docs`` by
+default.
+
+
+Getting Help
+------------
+
+If you want to try out the package and / or are curious to learn more, feel free to
+`reach out <https://django-overcomingbias-api.readthedocs.io/en/latest/contact.html>`_.
