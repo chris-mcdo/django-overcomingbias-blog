@@ -129,7 +129,6 @@ class YoutubeContentItemSchema(ContentItemSchema, ModelSchema):
             "yt_channel_id",
             "yt_channel_title",
             "yt_likes",
-            "yt_description",
             "duration",
             "view_count",
         ]
@@ -145,7 +144,6 @@ class SpotifyContentItemSchema(ContentItemSchema, ModelSchema):
             "edit_date",
             "sp_show_id",
             "sp_show_title",
-            "sp_description",
             "duration",
             "listen_count",
         ]

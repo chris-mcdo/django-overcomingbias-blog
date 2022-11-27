@@ -1,10 +1,11 @@
 import datetime
 
 import pytest
-from obapi.export import EPUBPandocWriter, MarkdownPandocWriter, export_sequence
-from obapi.models import ContentItem, Sequence
-
 from markers import require_spotify_api_auth, require_youtube_api_key
+
+from obapi.export import (EPUBPandocWriter, MarkdownPandocWriter,
+                          export_sequence)
+from obapi.models import ContentItem, Sequence
 
 
 @pytest.fixture
@@ -12,12 +13,10 @@ def simple_sequence():
     now = datetime.datetime.now(tz=datetime.timezone.utc)
     item_1 = ContentItem.objects.create(
         title="Item 1",
-        description_html="<p>Item 1</p><p>Has 2 paragraphs</p>",
         publish_date=now,
     )
     item_2 = ContentItem.objects.create(
         title="Item 2",
-        description_html="<p>Item 2</p><p>Has</p><p>3 paragraphs</p>",
         publish_date=now,
     )
     seq = Sequence.objects.create(title="Simple Sequence")

@@ -58,7 +58,6 @@ def _tidy_youtube_video_json(item_json):
         "yt_channel_id": item_json["snippet"]["channelId"],
         "yt_channel_title": item_json["snippet"]["channelTitle"],
         "yt_likes": item_json["statistics"].get("likeCount", None),
-        "yt_description": item_json["snippet"].get("description", ""),
     }
     return video
 
@@ -77,7 +76,6 @@ def _tidy_spotify_episode_json(item_json):
         "item_id": item_json["id"],
         "sp_show_id": item_json["show"]["id"],
         "sp_show_title": item_json["show"]["name"],
-        "sp_description": item_json["description"],
     }
     return episode
 
@@ -97,7 +95,6 @@ def _tidy_ob_post_object(item_post):
         "edit_date": item_post.edit_date,
         "word_count": item_post.word_count,
         "text_html": text_html,
-        "text_plain": item_post.plaintext,
         "item_id": item_post.name,
         "ob_post_number": item_post.number,
         "disqus_id": disqus_id,
@@ -199,7 +196,6 @@ def _tidy_essay(essay_id, essay_html):
         "author_names": ["Robin Hanson"],
         "publish_date": datetime.datetime(2000, 1, 1, tzinfo=datetime.timezone.utc),
         "text_html": soup.body.decode_contents().strip(),
-        "text_plain": text_plain,
         "word_count": utils.count_words(text_plain),
         "link_urls": [
             tag["href"] for tag in soup.body.find_all("a") if tag.has_attr("href")

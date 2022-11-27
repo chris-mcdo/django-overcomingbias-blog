@@ -282,9 +282,6 @@ class ContentItem(models.Model):
     )
 
     title = models.CharField(max_length=200, help_text="Title of content.")
-    description_html = models.TextField(
-        max_length=5000, blank=True, help_text="HTML description of content."
-    )
     publish_date = models.DateTimeField(help_text="Date of publication.")
     edit_date = models.DateTimeField(
         blank=True, null=True, help_text="Date of last edit."
@@ -383,8 +380,8 @@ class YoutubeContentItem(ContentItem):
     yt_likes = models.PositiveIntegerField(
         "likes", blank=True, null=True, help_text="Number of likes."
     )
-    yt_description = models.TextField(
-        "description", max_length=5000, blank=True, help_text="Video description."
+    description_html = models.TextField(
+        max_length=5000, blank=True, help_text="HTML description of video."
     )
     duration = models.DurationField(
         help_text="Duration of video.", blank=True, null=True
@@ -426,8 +423,8 @@ class SpotifyContentItem(ContentItem):
     sp_show_title = models.CharField(
         "show title", max_length=200, help_text="Show title."
     )
-    sp_description = models.TextField(
-        "description", max_length=5000, blank=True, help_text="Episode description."
+    description_html = models.TextField(
+        max_length=5000, blank=True, help_text="HTML description of episode."
     )
     duration = models.DurationField(
         help_text="Duration of episode.", blank=True, null=True
@@ -549,9 +546,6 @@ class OBContentItem(ContentItem):
     text_html = models.TextField(
         "content text HTML", blank=True, help_text="Content text HTML."
     )
-    text_plain = models.TextField(
-        "content plaintext", blank=True, help_text="Content plaintext."
-    )
 
     @property
     def content_url(self):
@@ -590,9 +584,6 @@ class EssayContentItem(ContentItem):
     )
     text_html = models.TextField(
         "content text HTML", blank=True, help_text="Content text HTML."
-    )
-    text_plain = models.TextField(
-        "content plaintext", blank=True, help_text="Content plaintext."
     )
 
     @property

@@ -21,11 +21,7 @@
     </header>
 
     {% comment %} Body {% endcomment %}
-    {% block body %}
-        {% autoescape off %}
-            {{ item.description_html }}
-        {% endautoescape %}
-    {% endblock %}
+    {% block body %}{% endblock %}
 
     {% comment %} Footer {% endcomment %}
     <footer>

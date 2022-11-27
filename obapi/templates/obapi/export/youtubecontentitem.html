@@ -6,5 +6,7 @@
         <p>Watch the full video at <a href="{{ content_url }}">{{ content_url }}</a></p>
     {% endwith %}
     <h2>Video Description</h2>
-    {{ block.super }}
+    {% autoescape off %}
+        {{ item.description_html }}
+    {% endautoescape %}
 {% endblock %}
