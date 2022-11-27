@@ -3,6 +3,7 @@ from django.db import models, transaction
 from django.db.models import F, Q
 from django.urls import reverse
 from model_utils.managers import InheritanceQuerySet
+
 from obapi import utils
 from obapi.assemble import (
     assemble_essay_content_items,
