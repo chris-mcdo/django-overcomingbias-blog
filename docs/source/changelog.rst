@@ -15,6 +15,22 @@ standard.
 .. Improved Documentation
 .. Trivial/Internal Changes
 
+django-overcomingbias-api 0.6.1 (2022-12-17)
+--------------------------------------------
+
+Trivial/Internal Changes
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Build with hatchling.
+
+django-overcomingbias-api 0.6.0 (2022-11-27)
+--------------------------------------------
+
+Improvements
+^^^^^^^^^^^^
+
+- Drop unnecessary content description fields.
+
 django-overcomingbias-api 0.5.0 (2022-11-27)
 --------------------------------------------
 
@@ -22,7 +38,6 @@ Features
 ^^^^^^^^
 
 - Add basic API at URL ``/api``.
-
 
 django-overcomingbias-api 0.3.3 (2022-09-23)
 --------------------------------------------

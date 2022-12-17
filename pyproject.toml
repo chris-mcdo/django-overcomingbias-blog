@@ -1,10 +1,62 @@
 [build-system]
-requires = [
-  "setuptools>=45",
-  "setuptools-scm[toml]>=6.2",
-  "wheel",
-]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
 
-[tool.setuptools_scm]
-write_to = "obapi/_version.py"
+[project]
+name = "django-overcomingbias-api"
+description = "django-overcomingbias-api: an API to Robin Hanson's content"
+readme = "README.rst"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+keywords = ["django", "overcomingbias", "api", "scrape"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4",
+]
+dependencies = [
+    "obscraper",
+    "bleach>=5.0.0",
+    "Django>=4.0,<5.0",
+    "django-model-utils>=4.2.0",
+    "django-ordered-model>=3.5",
+    "python-slugify>=5.0",
+    "python-dateutil>=2.7",
+    "pandadoc",
+    "django-ninja",
+]
+authors = [{ name = "Christopher McDonald", email = "cmcdonal33@gmail.com" }]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+test = ["pytest >=6.2.5", "pytest-django >=4.5.0", "python-dotenv >= 0.20.0"]
+
+[project.urls]
+repository = "https://github.com/chris-mcdo/django-overcomingbias-api"
+issues = "https://github.com/chris-mcdo/django-overcomingbias-api/issues"
+documentation = "https://django-overcomingbias-api.readthedocs.io/en/stable"
+changelog = "https://django-overcomingbias-api.readthedocs.io/en/stable/changelog.html"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "obapi/_version.py"
+
+[tool.isort]
+profile = "black"
