@@ -58,5 +58,11 @@ source = "vcs"
 [tool.hatch.build.hooks.vcs]
 version-file = "obapi/_version.py"
 
+[tool.hatch.build.targets.sdist]
+include = ["obapi/", "docs/", "tests/", "tox.ini", "pytest.ini", "manage.py"]
+
+[tool.hatch.build.targets.wheel]
+include = ["obapi/"]
+
 [tool.isort]
 profile = "black"
