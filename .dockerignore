@@ -8,7 +8,6 @@ docs
 *.egg-info
 # files
 .coveragerc
-.gitignore
 *.env
 **/__pycache__
 **/*.pyc
@@ -23,3 +22,4 @@ tox.ini
 # .git
 # LICENSE
 # README.rst
+# .gitignore
