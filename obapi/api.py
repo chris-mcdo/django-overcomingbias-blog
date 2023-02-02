@@ -33,7 +33,9 @@ register_converter(EssayIDConverter, "essay_id")
 register_converter(ClassifierNameConverter, "classifier")
 
 # API
-api = NinjaAPI(title="OB API", description="API for Robin Hanson's content")
+api = NinjaAPI(
+    title="OB API", description="API for Robin Hanson's content", urls_namespace="api"
+)
 
 CONTENT_TYPES = (
     f"{prefix}contentitem" for prefix in ("ob", "essay", "spotify", "youtube")
