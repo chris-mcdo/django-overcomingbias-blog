@@ -169,6 +169,7 @@ def _list_all_content():
     response=List[ContentItemSchema],
     summary="List All Content",
     description="List basic information about all content items",
+    tags=["content"],
 )
 def list_all_content(request):
     return _list_all_content()
@@ -178,6 +179,7 @@ def list_all_content(request):
     "/content/list/date",
     response=List[ContentItemSchema],
     summary="List Content By Publication Date",
+    tags=["content"],
 )
 def list_content_by_date(
     request, before: Optional[datetime], after: Optional[datetime]
@@ -194,6 +196,7 @@ def list_content_by_date(
     "/content/list/recent",
     response=List[ContentItemSchema],
     summary="List Most Recent Content",
+    tags=["content"],
 )
 def list_recent_content(request, offset: conint(ge=0) = 0, count: conint(gt=0) = 10):
     return _list_all_content().order_by("-publish_date")[offset : offset + count]
@@ -203,6 +206,7 @@ def list_recent_content(request, offset: conint(ge=0) = 0, count: conint(gt=0) =
     "content/overcomingbias",
     response=List[OBContentItemSchema],
     summary="Get OvercomingBias Posts",
+    tags=["content"],
 )
 def get_overcomingbias_posts(
     request, ids: List[constr(regex=OB_POST_NAME_REGEX)] = Query(...)
@@ -218,6 +222,7 @@ def get_overcomingbias_posts(
     "content/essays",
     response=List[EssayContentItemSchema],
     summary="Get Essays",
+    tags=["content"],
 )
 def get_essays(request, ids: List[constr(regex=ESSAY_ID_REGEX)] = Query(...)):
     return (
@@ -231,6 +236,7 @@ def get_essays(request, ids: List[constr(regex=ESSAY_ID_REGEX)] = Query(...)):
     "content/youtube",
     response=List[YoutubeContentItemSchema],
     summary="Get YouTube Videos",
+    tags=["content"],
 )
 def get_youtube_videos(
     request, ids: List[constr(regex=YOUTUBE_VIDEO_ID_REGEX)] = Query(...)
@@ -246,6 +252,7 @@ def get_youtube_videos(
     "content/spotify",
     response=List[SpotifyContentItemSchema],
     summary="Get Spotify Episodes",
+    tags=["content"],
 )
 def get_spotify_episodes(
     request, ids: List[constr(regex=SPOTIFY_EPISODE_ID_REGEX)] = Query(...)
